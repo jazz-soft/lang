@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf8>
+<title>Test</title>
+<style>
+#edit0 {height:4em;border-style:solid;border-width: 1px;border-color:silver;}
+#edit1 {height:24em;border-style:solid;border-width: 1px;border-color:silver;}
+.cm-editor { height: 100% }
+.cm-scroller { overflow: auto }
+</style>
+</head>
+<body>
+<h1>Test</h1>
+<p>
+<span><input id="file0" type="file" onchange="load(file0, edit0);"></span>
+</p>
+<p id="edit0"></p>
+<p>
+<span><input id="file1" type="file" onchange="load(file1, edit1);"></span>
+</p>
+<p id="edit1"></p>
+
+<script src="test.js"></script>
+<script>
+var file0 = document.getElementById('file0');
+var file1 = document.getElementById('file1');
+var edit0 = new XpathEditor('edit0');
+var edit1 = new XmlEditor('edit1');
+
+function load(file, edit) {
+  var reader = new FileReader();
+  reader.onload = async function(e) {
+    edit.setText(e.target.result);
+  };
+  reader.readAsText(file.files[0]);
+}
+</script>
+</body>
+</html>
