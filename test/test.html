@@ -30,9 +30,7 @@ var edit1 = new XmlEditor('edit1');
 
 function load(file, edit) {
   var reader = new FileReader();
-  reader.onload = async function(e) {
-    edit.setText(e.target.result);
-  };
+  reader.onload = function(e) { edit.setText(e.target.result); };
   reader.readAsText(file.files[0]);
 }
 </script>
