@@ -18,6 +18,7 @@
 <p id="edit0"></p>
 <p>
 <span><input id="file1" type="file" onchange="load(file1, edit1);"></span>
+<button onclick="test();">test</button>
 </p>
 <p id="edit1"></p>
 
@@ -32,6 +33,9 @@ function load(file, edit) {
   var reader = new FileReader();
   reader.onload = function(e) { edit.setText(e.target.result); };
   reader.readAsText(file.files[0]);
+}
+function test() {
+  edit1.test();
 }
 </script>
 </body>
